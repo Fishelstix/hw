@@ -74,37 +74,42 @@ public class opponent{
 	return "";
     }
     public int opick(int a, int b){
-	if(b<0){
+	if(b<0){ //if bot's mana is less than 0, bot must restore mana 
 	    return 3;
 	}
-	if(a<2){
-	    if(b<10){
+	if(a<2){ //if player's mana is less than two 
+	    if(b<10){ //almost always restores mana 
 		return 3;
-	    }else{
+	    }else{ //if bot has more than ten mana, itll just attack the bot
 		return 3+(int)(Math.random()*2);
 	    }
 	}
-	if(b<2){
+	if(b<2){ // if bot doesn't have mana but player has more than 2 mana
+	//bot will either block or gain mana 
 	    return 2+(int)(Math.random()*2);
 	}
-	if(a<5&&b<5){
+	if(a<5&&b<5){ //if both have at least 2 mana but both dont have mega attack 
+	//bot will randomly pick between attack, block, and gain mana 
 	    if((int)(Math.random()*3)==1){
 		return 1;
 	    }else{
 		return 2+(int)(Math.random()*2);
 	    }
 	}
-	if(b<5){
+	if(b<5){// if player has mega attack and bot doesn't, 2/3 chance of blocking, 1/6 chance of restoring mana 
+	// 1/6 chance of attacking 
 	    int x = (int)(Math.random()*6);
 	    if(x==0) return 1;
 	    if(x==1) return 3;
 	    return 2;
 	}
-	if(a<5){
+	if(a<5){// if player doesn't have mega attack but bot does it randomly pick between using mega attack 
+	// and restoring mana 
 	    return 3+(int)(Math.random()*2);
 	}
-	int x = (int)(Math.random()*3);
-	if(x==0) return 2;
+	int x = (int)(Math.random()*3); //if both players have mega attack, 1/3's chance of blocking
+	// 2/3's chance of using mega attack 
+	if(x==0) return 2; 
 	return 4;
     }
 }
