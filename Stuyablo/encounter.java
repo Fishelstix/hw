@@ -45,16 +45,20 @@ public class encounter{
 		Thread.sleep(1000);
 	    } catch (Exception e){}
 	    System.out.println("Type the number of the " + player.getElement() + "bending move you want to do");
-	    System.out.println("1. "+player.getMove(1)+": 32-38 damage, opponent loses 3 mana (uses 2 mana)");
-	    System.out.println("2. "+player.getMove(2)+": blocks basic attacks");
-	    System.out.println("3. "+player.getMove(3)+": restores 2 mana");
-	    System.out.println("4. "+player.getMove(4)+": 100 damage, 5 mana loss to opponent unshielded. If shielded: does 47-53 damage, opponent loses 2 mana (uses 5 mana)");
+	    System.out.println("Type 5 for help");
 	    int move = 0;
 	    boolean bad = true;
 	    Scanner movetype = new Scanner(System.in);
 	    while(bad){
 		move = movetype.nextInt();
 		bad = false;
+		if(move==5){
+		     System.out.println("1. "+player.getMove(1)+": 32-38 damage, opponent loses 3 mana (uses 2 mana)");
+		     System.out.println("2. "+player.getMove(2)+": blocks basic attacks");
+		     System.out.println("3. "+player.getMove(3)+": restores 2 mana");
+		     System.out.println("4. "+player.getMove(4)+": 100 damage, 5 mana loss to opponent unshielded. If shielded: does 47-53 damage, opponent loses 2 mana (uses 5 mana)");
+		     bad = true;
+		}
 		if((move==1&&player.getMana()<2)||(move==4&&player.getMana()<5)){
 		    System.out.println("Insufficient mana for this move");
 		    bad = true;
