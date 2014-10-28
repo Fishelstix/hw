@@ -85,6 +85,31 @@ public class Driver{
 	}
 	return false;
     }
+    public boolean canBalance(int[] nums) {
+	int l=nums.length;
+	int c=0;
+	int d=0;
+	for(int i=0; i<l; i++){
+	    c+=nums[i];
+	}
+	if(c%2==1) return false;
+	for(int i=0; d<c/2; i++){
+	    d+=nums[i];
+	}
+	return d==c/2;
+    }
+    public int[] seriesUp(int n) {
+	int x=(n*(n+1)/2);
+	int c=0;
+	int[] s = new int[x];
+	for(int i=1; i<=n; i++){
+	    for(int j=1; j<=i; j++){
+		s[c]=j;
+		c++;
+	    }
+	}
+	return s;
+    }
     public static void main(String[] args){
 	int[] a = {3,2,4,1};
 	System.out.println(""+find(a,4));
