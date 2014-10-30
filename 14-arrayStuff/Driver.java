@@ -110,6 +110,27 @@ public class Driver{
 	}
 	return s;
     }
+    public int maxMirror(int[] nums) {
+	if(nums.length==0) return 0;
+	int c=1;
+	for(int i=0; i<nums.length; i++){
+	    for(int j=i+1; j<nums.length; j++){
+		if(nums[i]==nums[j]){
+		    int d=1;
+		    int l=j-i+1;
+		    for(int k=1; k<l; k++){
+			if(nums[i+k]==nums[j-k]){
+			    d++;
+			}else{
+			    break;
+			}
+		    }
+		    if(d>c) c=d;
+		}
+	    }
+	}
+	return c;
+    }
     public static void main(String[] args){
 	int[] a = {3,2,4,1};
 	System.out.println(""+find(a,4));
