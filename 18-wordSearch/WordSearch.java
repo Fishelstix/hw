@@ -26,19 +26,26 @@ public class WordSearch {
 	}
 	return s;
     }
-    public void addWordH(String w){
+    public void addWord(String w){
 	int l = w.length()-1;
 	boolean fits = false;
 	while(!fits){
 	    int x = (int)(Math.random()*boardX);
 	    int y = (int)(Math.random()*boardY);
-	    int xVel;
-	    int yVel;
+	    int xVel=0;
+	    int yVel=0;
 	    while(xVel==0 && yVel==0){
 		xVel = (int)(Math.random()*3) - 1;
 		yVel = (int)(Math.random()*3) - 1;
 	    }
 	    if(!(x+l*xVel<0)&&!(x+l*xVel>=boardX)&&!(y+l*yVel<0)&&!(y+l*yVel>=boardY)){
-		int 
+		for(int i=0; i<=l; i++){
+		    board[y][x]=w.charAt(i);
+		    x+=xVel;
+		    y+=yVel;
+		}
+		fits = true;
+	    }
+	}
     }
 }
