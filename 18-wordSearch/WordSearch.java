@@ -26,6 +26,16 @@ public class WordSearch {
 	}
 	return s;
     }
+    public boolean isValid(String w, int x, int y, int xVel, int yVel){
+	int l = w.length()-1;
+	if((x+l*xVel<0)||(x+l*xVel>=boardX)||(y+l*yVel<0)||(y+l*yVel>=boardY)) return false;
+	for(int i=0; i<=l; i++){
+	    if(!((board[y][x]=='.')||(board[y][x]==w.charAt(i)))) return false;
+	    x+=xVel;
+	    y+=yVel;
+	}
+	return true;
+    }
     public void addWord(String w){
 	int l = w.length()-1;
 	boolean fits = false;
@@ -38,7 +48,7 @@ public class WordSearch {
 		xVel = (int)(Math.random()*3) - 1;
 		yVel = (int)(Math.random()*3) - 1;
 	    }
-	    if(!(x+l*xVel<0)&&!(x+l*xVel>=boardX)&&!(y+l*yVel<0)&&!(y+l*yVel>=boardY)){
+	    if(isValid(w,x,y,xVel,yVel)){
 		for(int i=0; i<=l; i++){
 		    board[y][x]=w.charAt(i);
 		    x+=xVel;
