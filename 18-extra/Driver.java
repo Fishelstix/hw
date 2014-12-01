@@ -3,6 +3,7 @@ import java.io.*;
 public class Driver {
     public static void main(String[] args) {
 	ArrayList<String> size5 = new ArrayList<String>();
+	int n=0;
 	Scanner sc = null;
 	try {
 	    sc =new Scanner(new File("words.txt"));
@@ -14,7 +15,12 @@ public class Driver {
 	    String s = sc.next();
 	    if(s.length()==5){
 		if(((int)(s.charAt(0))>96)&&((int)(s.charAt(0))<123)&&((int)(s.charAt(1))>96)&&((int)(s.charAt(1))<123)&&((int)(s.charAt(2))>96)&&((int)(s.charAt(2))<123)&&((int)(s.charAt(3))>96)&&((int)(s.charAt(3))<123)&&((int)(s.charAt(4))>96)&&((int)(s.charAt(4))<123)){
-		    size5.add(s);
+		    if(n==4){
+			size5.add(s);
+			n=0;
+		    }else{
+			n++;
+		    }
 		}
 	    }
 	}

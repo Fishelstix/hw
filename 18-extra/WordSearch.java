@@ -70,7 +70,6 @@ public class WordSearch {
 		    }
 		    out+="\n";
 		}
-		out+="\n";
 		System.out.println(out);
 	    }else{
 		int l=valid.size();

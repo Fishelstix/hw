@@ -2,8 +2,9 @@ public class WordSearch {
     private char[][] board;
     private int boardX;
     private int boardY;
-    
-    public WordSearch(int r, int c){
+    private String[] wordList;
+    public WordSearch(int r, int c, String[] list){
+	wordList = list;
 	boardX = c;
 	boardY = r;
 	board = new char[r][c];
@@ -12,9 +13,9 @@ public class WordSearch {
 		board[i][j]='.';
 	    }
 	}
-    }
-    public WordSearch() {
-	this(20,40);
+	for(int i=0; i<wordList.length; i++){
+	    w.addword(wordList[i]);
+	}
     }
     public String toString(){
 	String s = "";
