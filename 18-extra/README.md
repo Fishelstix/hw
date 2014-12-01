@@ -1,0 +1,1 @@
+This code finds all 5x5 blocks of letters such that every row and column is a five letter word.
