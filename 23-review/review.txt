@@ -1,0 +1,35 @@
+git@github.com:bilingwu/apfinal
+
+(other files reviewed by Jake Waksbaum)
+--------------------------------------------
+Basefloor.java:
+
+Line 9
+//Assigning f (floor number) should be added to the constructor
+--------------------------------------------
+Baseroom.java:
+
+Line 5
+//The “Thing”s are the panels of the floor of the room right?  Perhaps a better variable name?
+
+Line 8
+//Is any of this necessary?  It seems that the coordinates of the room in relation to the floor and the floor number are all in the Basefloor class, which stores these rooms in a two-dimensional array: the index of the room in the first array being roomxcor, the index of the room in the second array being the roomycor, and the floor already being an instance variable in the Basefloor class
+--------------------------------------------
+Desk.java
+
+Line 4
+//Is this constructor necessary?  Isn’t almost all of this covered in the base enviro class?
+--------------------------------------------
+Thing.java & Enviro.java
+
+//I don’t think 2 classes are really necessary here.  Enviro extends Thing, but there is nothing that is a Thing that isn’t an Enviro.  It also seems like the only things needed of the Thing class are encompassed in the Enviro class.  Consider combining these two into only one class file with total functionality.
+--------------------------------------------
+Spawnroom.java
+
+Line 9
+//See comment on Baseroom for this constructor
+--------------------------------------------
+Treasureroom.java
+
+Line 6
+//See comment on Baseroom for this constructor
